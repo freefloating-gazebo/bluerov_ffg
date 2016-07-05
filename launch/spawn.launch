@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- spawn in Gazebo with GUI -->
+    <group ns="brov">
+        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov.xacro"/>
+        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 0 -y 0 -z 0 -R 3.14927 -P 0 -Y 0"/>
+        <rosparam file="$(find bluerov_ffg)/config/brov.yaml" command="load"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    </group>         
+</launch>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>bluerov_ffg</name>
+  <version>0.0.1</version>
+  <description>The bluerov_ffg package</description>
+
+  <maintainer email="olivier.kermorgant@ec-nantes.fr">Olivier Kermorgant</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+  </export>
+  
+</package>

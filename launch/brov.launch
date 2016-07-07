@@ -18,9 +18,6 @@
              body control will not activate as we expect direct thruster control -->
         <node name="pid_control" pkg="freefloating_gazebo" type="pid_control" output="screen" respawn="true"/>
         
-        <!-- Manual control of joints -->
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" if="$(arg gui)"/>                 
-        
         <!-- Manual control of thruster efforts -->
         <group ns="thrusters">
              <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov_dummy.urdf"/>                         

@@ -74,17 +74,17 @@
         <thruster>
             <effort>30</effort>
             <name>thr3</name>
-            <map>0 0 1 ${-thr34_y} ${thr34_x} 0</map>
+            <map>0 0 -1 ${-thr34_y} ${thr34_x} 0</map>
         </thruster>
         <thruster>
             <effort>30</effort>
             <name>thr4</name>
-            <map>0 0 1 ${thr34_y} ${thr34_x} 0</map>
+            <map>0 0 -1 ${thr34_y} ${thr34_x} 0</map>
         </thruster>
         <thruster>
             <effort>30</effort>
             <name>thr5</name>
-            <map>0 0 1 0 ${-thr5_x} 0</map>
+            <map>0 0 -1 0 ${-thr5_x} 0</map>
         </thruster>       
         <thruster>
             <effort>30</effort>
@@ -129,10 +129,9 @@
 
 <xacro:thruster_dummy_link name="thr1" xyz="0.0 0.115 0.0" rpy="-0.0 -1.57079632679 0.0"/>
 <xacro:thruster_dummy_link name="thr2" xyz="0.0 -0.115 0.0" rpy="-0.0 -1.57079632679 0.0"/>
-<xacro:thruster_dummy_link name="thr3" xyz="-0.18 -0.1092 0.0" rpy="3.14159265359 -0.0 0.0"/>
-<xacro:thruster_dummy_link name="thr4" xyz="-0.18 0.1092 0.0" rpy="3.14159265359 -0.0 0.0"/>
-<xacro:thruster_dummy_link name="thr5" xyz="0.17 0.0 0.0" rpy="3.14159265359 -0.0 0.0"/>
+<xacro:thruster_dummy_link name="thr3" xyz="0.18 0.1092 0.0" rpy="0.0 -0.0 0.0"/>
+<xacro:thruster_dummy_link name="thr4" xyz="0.18 -0.1092 0.0" rpy="0.0 -0.0 0.0"/>
+<xacro:thruster_dummy_link name="thr5" xyz="-0.17 0.0 0.0" rpy="0.0 -0.0 0.0"/>
 <xacro:thruster_dummy_link name="thr6" xyz="0.0 0.0 0.105" rpy="1.57079632679 -0.0 0.0"/>
-
 
 </robot>

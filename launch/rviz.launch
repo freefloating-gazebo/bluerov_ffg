@@ -2,7 +2,7 @@
 <launch>
 
 <group ns="brov">    
-    <node name="rviz_bridge" pkg="ffg_vectored" type="rviz_bridge.py" output="screen" respawn="true">       
+    <node name="tf_bridge" pkg="bluerov_ffg" type="rviz_bridge.py" output="screen" respawn="true">       
     </node>
     <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find bluerov_ffg)/config/brov.rviz" />
 </group>

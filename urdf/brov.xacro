@@ -99,7 +99,7 @@
       <origin xyz="-0.241 0.165 0.17" rpy="${-PI/2} 0 -${PI/2}"/>
       <!--origin xyz="-0.241 0.165 0.17" rpy="${PI/2} 0 -${PI/2}"/-->
       <geometry>
-	<mesh filename="file://$(find bluerov_ffg)/mesh/brov-redux.dae" scale="0.001 0.001 0.001"/>
+	<mesh filename="file://$(find bluerov_ffg)/mesh/brov-redux.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
      <inertial>

@@ -64,6 +64,4 @@ Thumbs.db
 *.synctex.gz*
 *.directory
 
-# MESH FILES #
-mesh/*
 !.gitignore

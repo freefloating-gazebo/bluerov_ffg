@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+    
+    <!-- launch gazebo without gui -->
+    <include file="$(find mavros)/launch/apm.launch">
+        <arg name="fcu_url" value="udp://10.42.0.1:14550@pirov.local:14550"/>
+    </include>
+     
+</launch>
+

@@ -1,0 +1,29 @@
+/brov/body_velocity_setpoint:
+    type: geometry_msgs/TwistStamped
+    vx: 
+        min: -1
+        max: 1
+        to: twist.linear.x
+    vy: 
+        min: -1
+        max: 1
+        to: twist.linear.y
+    wx: 
+        min: -1
+        max: 1
+        to: twist.angular.x
+    wy: 
+        min: -1
+        max: 1
+        to: twist.angular.y
+    wz: 
+        min: -1
+        max: 1
+        to: twist.angular.z
+    header.frame_id: base_link
+/brov/body_position_setpoint:
+    type: geometry_msgs/PoseStamped
+    z: 
+        min: -12
+        max: 0
+        to: pose.position.z

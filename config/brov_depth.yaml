@@ -1,7 +1,7 @@
 controllers:
     config:
         body:
-            default: velocity
+            default: depth
             control_type: wrench 
             state: state
             velocity_setpoint: body_velocity_setpoint

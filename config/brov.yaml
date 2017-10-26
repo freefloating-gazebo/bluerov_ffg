@@ -1,41 +1,31 @@
 controllers:
     config:
         body:
-            control_type: thruster  # cannot be wrench anyway because of steering thrusters
+            default: velocity
+            control_type: wrench 
             state: state
             velocity_setpoint: body_velocity_setpoint
-            command: body_command
+            command: thruster_command
             cascaded_position: False
             dynamic_reconfigure: True
             use_pid: True
-        joints:
-            state: joint_states
-            setpoint: joint_setpoint
-            command: joint_command
-            cascaded_position: False
-            dynamic_reconfigure: True
     x:
-        velocity: {p: 100, i: 1, d: 10, i_clamp: 60, antiwindup: True}
+        velocity: {p: 100, i: 1, d: 00, i_clamp: 60, antiwindup: True}
         position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
     y:
-        velocity: {p: 100, i: 1, d: 10, i_clamp: 30, antiwindup: True}
+        velocity: {p: 100, i: 1, d: 0, i_clamp: 30, antiwindup: True}
         position: {p: 100, i: 5, d: 10, i_clamp: 30, antiwindup: True}
     z:
-        velocity: {p: 100, i: 1, d: 10, i_clamp: 60, antiwindup: True}
+        velocity: {p: 100, i: 1, d: 0, i_clamp: 60, antiwindup: True}
         position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
-    pitch:
-        velocity: {p: 100, i: 1, d: 10, i_clamp: 27, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 27, antiwindup: True} 
     roll:
-        velocity: {p: 10, i: 0, d: 1, i_clamp: 10, antiwindup: True}
+        velocity: {p: 10, i: 0, d: 0, i_clamp: 10, antiwindup: True}
         position: {p: 10, i: 0, d: 1, i_clamp: 10, antiwindup: True}
+    pitch:
+        velocity: {p: 100, i: 1, d: 0, i_clamp: 27, antiwindup: True}
+        position: {p: 100, i: 5, d: 10, i_clamp: 27, antiwindup: True} 
     yaw:
-        velocity: {p: 100, i: 1, d: 10, i_clamp: 10, antiwindup: True}
+        velocity: {p: 100, i: 1, d: 0, i_clamp: 10, antiwindup: True}
         position: {p: 100, i: 5, d: 10, i_clamp: 10, antiwindup: True}
-    fwd_left:
-        velocity: {p: 1, i: .1, d: 0.0}
-        position: {p: 1, i: 0.1, d: 0.5}
-    fwd_right:
-        velocity: {p: 1, i: .1, d: 0.0}
-        position: {p: 1, i: 0.1, d: 0.5}
+
         

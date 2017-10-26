@@ -2,6 +2,11 @@
 <launch>
     <arg name="gui" default="true"/>
    <arg name="uwsim" default="false"/>
+    <arg name="shaders" default="true"/>
+  <!-- virtual arg for uwsim shaders -->
+  <arg name="disableShaders" default="" if="$(arg shaders)"/>  
+  <arg name="disableShaders" default="--disableShaders" unless="$(arg shaders)"/> 
+  
 
     <!-- Launch Gazebo with underwater world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -10,13 +15,19 @@
         <arg name="world_name" value="$(find freefloating_gazebo)/world/underwater.world"/>
     </include>
     
+    <group if="$(arg uwsim)">
+        <!-- launch uwsim -->
+        <node name="uwsim" pkg="uwsim" type="uwsim" 
+            args="$(arg disableShaders) --dataPath $(find bluerov_ffg) --dataPath $(find freefloating_gazebo_demo) --configfile scenes/brov.xml" respawn="true"/>
+    </group>
+     
+    
     <group ns="brov">
          <!-- spawn in Gazebo with GUI -->
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov.xacro"/>
-        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 0 -y 0 -z 0 -R 3.14927 -P 0 -Y 0"/>
+        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 -R 3.14927 -P 0 -Y 0"/>
         <rosparam file="$(find bluerov_ffg)/config/brov.yaml" command="load"/>
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-        
+
         <!-- Manual control of thruster efforts -->
         <group ns="thrusters">
              <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov_dummy.urdf"/>                         
@@ -25,7 +36,6 @@
              <remap from="joint_states" to="/brov/thruster_command" />
              </node>             
         </group>
-        
     </group>
         
     <!-- spawn terrain -->

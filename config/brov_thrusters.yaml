@@ -1,31 +1,6 @@
 controllers:
     config:
         body:
-            default: velocity
-            control_type: thruster
             state: state
-            velocity_setpoint: body_velocity_setpoint
             command: thruster_command
-            cascaded_position: False
-            dynamic_reconfigure: True
-            use_pid: True
-    x:
-        velocity: {p: 1, i: 0, d: 00, i_clamp: 60, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
-    y:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 30, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 30, antiwindup: True}
-    z:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 60, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
-    roll:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 10, antiwindup: True}
-        position: {p: 10, i: 0, d: 1, i_clamp: 10, antiwindup: True}
-    pitch:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 27, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 27, antiwindup: True} 
-    yaw:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 10, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 10, antiwindup: True}
 
-        

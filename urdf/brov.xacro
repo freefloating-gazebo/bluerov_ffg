@@ -117,7 +117,7 @@
       <compensation>1.01</compensation>
       <origin xyz= "0 0 0"/>
       <limit radius=".5"/>
-      <damping xyz="100 200 150" rpy="50 50 50"/>
+      <damping xyz="50 100 60" rpy="50 50 50"/>
   </buoyancy>
   </link>
 

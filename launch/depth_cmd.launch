@@ -26,11 +26,12 @@
          <!-- spawn in Gazebo with GUI -->
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov.xacro"/>
         <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 -R 3.14927 -P 0 -Y 0"/>
-        <rosparam file="$(find bluerov_ffg)/config/brov.yaml" command="load"/>
         
         <!-- Load controller configurations (vehicle and arm) from YAML file to parameter server -->
-        <rosparam file="$(find bluerov_ffg)/config/brov_depth.yaml" command="load"/>
-        <node name="pid_control" pkg="freefloating_gazebo" type="pid_control" output="screen" respawn="true"/>
+        <rosparam file="$(find bluerov_ffg)/config/brov.yaml" command="load"/>
+        <node name="pid_control" pkg="freefloating_gazebo" type="pid_control" output="screen" respawn="true">
+             <param name="body_control" value="depth"/>
+        </node>
         
         <!-- Load gui if needed -->
         <node name="velocity_depth" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true" if="$(arg gui)">

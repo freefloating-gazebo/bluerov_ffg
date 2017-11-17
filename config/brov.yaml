@@ -1,31 +1,28 @@
 controllers:
     config:
         body:
-            default: velocity
-            control_type: wrench 
             state: state
             velocity_setpoint: body_velocity_setpoint
             command: thruster_command
-            cascaded_position: False
+            cascaded_position: True
             dynamic_reconfigure: True
-            use_pid: True
     x:
-        velocity: {p: 1, i: 0, d: 00, i_clamp: 60, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 5000, i: 5, d: 10}
     y:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 30, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 30, antiwindup: True}
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 5000, i: 5, d: 10}
     z:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 60, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 60, antiwindup: True}
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 1, i: 0, d: 0}
     roll:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 10, antiwindup: True}
-        position: {p: 10, i: 0, d: 1, i_clamp: 10, antiwindup: True}
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 500, i: 10, d: 1}
     pitch:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 27, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 27, antiwindup: True} 
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 5000, i: 5, d: 10}
     yaw:
-        velocity: {p: 1, i: 0, d: 0, i_clamp: 10, antiwindup: True}
-        position: {p: 100, i: 5, d: 10, i_clamp: 10, antiwindup: True}
+        velocity: {p: 50, i: 10, d: 0.1}
+        position: {p: 5000, i: 5, d: 10}
 
         

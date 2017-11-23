@@ -3,4 +3,6 @@ controllers:
         body:
             state: state
             command: thruster_command
+            type: thruster
+            
 

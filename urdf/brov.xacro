@@ -62,12 +62,12 @@
         
         <!-- for each thruster, give the map to XYZ+RPY and the maximum effort -->
         <thruster>
-            <effort>30</effort>
+            <effort>40</effort>
             <name>thr1</name>
             <map>1 0 0 0 0 ${-thr12_y}</map>
         </thruster>
         <thruster>
-            <effort>30</effort>
+            <effort>40</effort>
             <name>thr2</name>
             <map>1 0 0 0 0 ${thr12_y}</map>
         </thruster>

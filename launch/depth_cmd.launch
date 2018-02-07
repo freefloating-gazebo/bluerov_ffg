@@ -31,7 +31,7 @@
     <group ns="brov">
          <!-- spawn in Gazebo with GUI -->
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov.xacro"/>
-        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 -R 3.14927 -P 0 -Y 0"/>
+        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 "/>
         
         <!-- Load controller configurations (vehicle and arm) from YAML file to parameter server -->
         <rosparam file="$(find bluerov_ffg)/config/brov.yaml" command="load"/>

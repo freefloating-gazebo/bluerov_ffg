@@ -30,17 +30,21 @@
     <group ns="brov">
          <!-- spawn in Gazebo with GUI -->
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov.xacro"/>
-        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 -R 3.14927 -P 0 -Y 0"/>
+        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 "/>
         <rosparam file="$(find bluerov_ffg)/config/brov_thrusters.yaml" command="load"/>
 
         <!-- Manual control of thruster efforts -->
-        <group ns="thrusters">
-             <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bluerov_ffg)/urdf/brov_dummy.urdf"/>                         
+         <node name="gui" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true">
+             <param name="file" value="$(find bluerov_ffg)/launch/Thrusters.yaml"/>
+        </node>
+    
+       <!-- <group ns="thrusters">
+             <param name="robot_description" command="$(find xacro)/xacro inorder $(find bluerov_ffg)/urdf/brov_dummy.urdf"/>                         
              <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" respawn="true" if="$(arg gui)">
              <param name="use_gui" value="True"/>
              <remap from="joint_states" to="/brov/thruster_command" />
              </node>             
-        </group>
+        </group>-->
     </group>
         
     <!-- spawn terrain -->

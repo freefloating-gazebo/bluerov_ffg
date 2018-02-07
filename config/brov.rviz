@@ -197,6 +197,8 @@ Visualization Manager:
         All Enabled: false
         base_link:
           Value: true
+        base_link_R:
+          Value: true
         thr1:
           Value: false
         thr2:
@@ -217,27 +219,29 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
+        base_link:
+          thr1:
+            {}
+          thr2:
+            {}
+          thr3:
+            {}
+          thr4:
+            {}
+          thr5:
+            {}
+          thr6:
+            {}
         world:
-          base_link:
-            thr1:
-              {}
-            thr2:
-              {}
-            thr3:
-              {}
-            thr4:
-              {}
-            thr5:
-              {}
-            thr6:
-              {}
+          base_link_R:
+            {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: base_link_R
     Frame Rate: 30
   Name: root
   Tools:
@@ -273,10 +277,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.360398263
+      Pitch: 0.390398234
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.568570614
+      Yaw: 0.498570979
     Saved: ~
 Window Geometry:
   "&Displays":

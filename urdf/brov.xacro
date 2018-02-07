@@ -76,12 +76,12 @@
         <thruster>
             <effort>30</effort>
             <name>thr3</name>
-            <map>0 0 -1 ${-thr34_y} ${thr34_x} 0</map>
+            <map>0 0 -1 ${thr34_y} ${thr34_x} 0</map>
         </thruster>
         <thruster>
             <effort>30</effort>
             <name>thr4</name>
-            <map>0 0 -1 ${thr34_y} ${thr34_x} 0</map>
+            <map>0 0 -1 ${-thr34_y} ${thr34_x} 0</map>
         </thruster>
         <thruster>
             <effort>30</effort>

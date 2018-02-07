@@ -52,6 +52,8 @@ if __name__ == '__main__':
             t = listener.odom.pose.pose.position
             q = listener.odom.pose.pose.orientation                        
             br.sendTransform((t.x, t.y, t.z), (q.x,q.y,q.z,q.w), rospy.Time.now(), listener.odom.child_frame_id, listener.odom.header.frame_id)
+            br.sendTransform((t.x, t.y, t.z), (0,0,0,1), rospy.Time.now(), 'base_link_R', listener.odom.header.frame_id)
+            
             
         if listener.thruster_received:
             for i,w in enumerate(wrench):

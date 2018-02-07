@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="gui" default="true"/>
+   <arg name="gui" default="true"/>
    <arg name="uwsim" default="false"/>
     <arg name="shaders" default="true"/>
   <!-- virtual arg for uwsim shaders -->
@@ -14,6 +14,11 @@
         <arg name="paused" value="true"/>
         <arg name="world_name" value="$(find freefloating_gazebo)/world/underwater.world"/>
     </include>
+    
+    <!-- add 100 x 100 m turquoise water -->
+    <node name="surface" pkg="freefloating_gazebo" type="surface.py"
+          args="-x 100 -y 100 -g 0.2 -b 1 -a 0.2"
+          />
     
     <group if="$(arg uwsim)">
         <!-- launch uwsim -->

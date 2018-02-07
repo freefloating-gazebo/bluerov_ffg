@@ -15,6 +15,11 @@
         <arg name="world_name" value="$(find freefloating_gazebo)/world/underwater.world"/>
     </include>
     
+    <!-- add 100 x 100 m turquoise water -->
+    <node name="surface" pkg="freefloating_gazebo" type="surface.py"
+          args="-x 100 -y 100 -g 0.2 -b 1 -a 0.2"
+          />
+    
     <group if="$(arg uwsim)">
         <!-- launch uwsim -->
         <node name="uwsim" pkg="uwsim" type="uwsim" 

@@ -91,7 +91,7 @@
             <name>thr6</name>
             <map>0 1 0 ${-thr56_z} 0 0</map>
         </thruster>
-    </plugin>
+    </plugin>            
     </gazebo>
 
   <link name="base_link">
@@ -120,6 +120,8 @@
       <damping xyz="50 100 60" rpy="50 50 50"/>
   </buoyancy>
   </link>
+
+  
 
 <xacro:thruster_dummy_link name="thr1" xyz="0.0 0.115 0.0" rpy="-0.0 -1.57079632679 0.0"/>
 <xacro:thruster_dummy_link name="thr2" xyz="0.0 -0.115 0.0" rpy="-0.0 -1.57079632679 0.0"/>

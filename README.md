@@ -2,7 +2,7 @@ Package for BlueROV1 simulation.
 
 The robot can be simulated either with Gazebo or UWSim rendering (`uwsim:=true` in launch files).
 
-The GUIs use the  [slider_publisher packagehttps://github.com/oKermorgant/slider_publisher).
+The GUIs use the  [slider_publisher package](https://github.com/oKermorgant/slider_publisher).
 
 Control can be done either at the thruster or at the velocity level.
 

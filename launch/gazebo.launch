@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+   <arg name="gui" default="true"/>
+   <arg name="uwsim" default="false"/>
+    <arg name="shaders" default="true"/>
+  <!-- virtual arg for uwsim shaders -->
+  <arg name="disableShaders" default="" if="$(arg shaders)"/>  
+  <arg name="disableShaders" default="--disableShaders" unless="$(arg shaders)"/> 
+  <arg name="robot" default="brov"/>
+  
+
+    <!-- Launch Gazebo with underwater world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="gui" value="false" if="$(arg uwsim)"/>
+        <arg name="paused" value="true"/>
+        <arg name="world_name" value="$(find freefloating_gazebo)/world/underwater.world"/>
+    </include>
+    
+    <!-- add 100 x 100 m turquoise water -->
+    <node name="surface" pkg="freefloating_gazebo" type="surface.py"
+          args="-x 100 -y 100 -g 0.2 -b 1 -a 0.2"
+          />
+    
+    <group if="$(arg uwsim)">
+        <!-- launch uwsim -->
+        <node name="uwsim" pkg="uwsim" type="uwsim" 
+            args="$(arg disableShaders) --dataPath $(find bluerov_ffg) --dataPath $(find freefloating_gazebo_demo) --configfile scenes/brov.xml" respawn="true"/>
+    </group>
+     
+    
+    <group ns="brov">
+         <!-- spawn in Gazebo with GUI -->
+        <param name="robot_description" command="$(find xacro)/xacro $(find bluerov_ffg)/urdf/$(arg robot).xacro"/>
+       <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 "/>
+        <rosparam file="$(find bluerov_ffg)/config/brov_thrusters.yaml" command="load"/>
+    </group>
+        
+    <!-- spawn terrain -->
+    <param name="terrain_description" command="$(find xacro)/xacro $(find freefloating_gazebo_demo)/terrain/shipwreck/terrain.sdf"/>
+    <node name="terrain_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-sdf -model terrain -param terrain_description -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+   
+</launch>

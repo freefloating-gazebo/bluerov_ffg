@@ -1,0 +1,27 @@
+/brov/thruster_pose:
+    type: geometry_msgs/PoseStamped
+    header.frame_id: world
+    x: 
+        min: -0.5
+        max: 0.5
+        to: pose.position.x
+    y: 
+        min: -0.5
+        max: 0.5
+        to: pose.position.y
+    z: 
+        min: -0.5
+        max: 0.5
+        to: pose.position.z
+    roll: 
+        min: -pi
+        max: pi
+        to: pose.orientation.roll
+    pitch: 
+        min: -pi
+        max: pi
+        to: pose.orientation.pitch
+    yaw: 
+        min: -pi
+        max: pi
+        to: pose.orientation.yaw

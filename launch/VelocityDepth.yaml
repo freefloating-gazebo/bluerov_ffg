@@ -23,6 +23,7 @@
     header.frame_id: base_link
 /brov/body_position_setpoint:
     type: geometry_msgs/PoseStamped
+    header.frame_id: 'world'
     z: 
         min: -12
         max: 0

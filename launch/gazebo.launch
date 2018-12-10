@@ -32,7 +32,6 @@
          <!-- spawn in Gazebo with GUI -->
         <param name="robot_description" command="$(find xacro)/xacro $(find bluerov_ffg)/urdf/$(arg robot).xacro"/>
        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model brov -param robot_description -x 3 -y 6.5 -z -10 "/>
-        <rosparam file="$(find bluerov_ffg)/config/brov_thrusters.yaml" command="load"/>
     </group>
         
     <!-- spawn terrain -->

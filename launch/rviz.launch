@@ -13,8 +13,7 @@
     
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
     
-    <node name="tf_bridge" pkg="freefloating_gazebo" type="rviz_bridge.py" output="screen" respawn="true">       
-    </node>
-    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find bluerov_ffg)/config/brov.rviz" />
+    <node name="tf_bridge" pkg="freefloating_gazebo" type="rviz_bridge.py" output="screen" respawn="true"/>  
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find bluerov_ffg)/config/brov.rviz" output="screen"  respawn="true"/>
 </group>
 </launch>

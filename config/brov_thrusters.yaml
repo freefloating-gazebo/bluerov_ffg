@@ -1,8 +1,0 @@
-controllers:
-    config:
-        body:
-            state: state
-            command: thruster_command
-            type: thruster
-            
-

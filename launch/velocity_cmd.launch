@@ -7,7 +7,7 @@
             <param name="body_control" value="velocity"/>
         </node>
         
-        <!-- Load gui if needed -->
+        <!-- Load gui -->
         <node name="velocity_gui" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true"">
         <param name="file" value="$(find bluerov_ffg)/launch/Velocity.yaml"/>
         </node>

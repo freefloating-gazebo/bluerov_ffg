@@ -3,7 +3,7 @@
 
     <group ns="brov">
         <!-- Manual control of thruster efforts -->
-         <node name="gui" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true">
+         <node name="thruster_gui" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true">
              <param name="file" value="$(find bluerov_ffg)/launch/Thrusters.yaml"/>
         </node>
     </group>

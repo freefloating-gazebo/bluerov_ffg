@@ -1,28 +1,25 @@
 controllers:
     config:
         body:
-            state: state
-            velocity_setpoint: body_velocity_setpoint
-            command: thruster_command
             cascaded_position: True
             dynamic_reconfigure: True
     x:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 5000, i: 5, d: 10}
+        position: {p: 50, i: 5, d: 10}
     y:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 5000, i: 5, d: 10}
+        position: {p: 50, i: 5, d: 10}
     z:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 1, i: 0, d: 0}
+        position: {p: 20, i: 2, d: 0}
     roll:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 500, i: 10, d: 1}
+        position: {p: 50, i: 2, d: 1}
     pitch:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 5000, i: 5, d: 10}
+        position: {p: 50, i: 5, d: 10}
     yaw:
         velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 5000, i: 5, d: 10}
+        position: {p: 50, i: 5, d: 10}
 
         

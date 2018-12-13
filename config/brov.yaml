@@ -4,22 +4,22 @@ controllers:
             cascaded_position: True
             dynamic_reconfigure: True
     x:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 50, i: 5, d: 10}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: .1}
     y:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 50, i: 5, d: 10}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: 0.1}
     z:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 20, i: 2, d: 0}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: 0}
     roll:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 50, i: 2, d: 1}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: .1}
     pitch:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 50, i: 5, d: 10}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: 0.1}
     yaw:
-        velocity: {p: 50, i: 10, d: 0.1}
-        position: {p: 50, i: 5, d: 10}
+        velocity: {p: 10, i: 1, d: 0.1}
+        position: {p: 10, i: 1, d: 0.1}
 
         

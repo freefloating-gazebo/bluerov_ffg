@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 
-   <!-- STL-version of the URDF, used with gazebo for dynamic simulation  -->
+<!-- STL-version of the URDF, used with gazebo for dynamic simulation  -->
 
 <robot name="brov" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
-  <xacro:property name="PI" value="3.1415926535897931"/>
-  
-  <!-- Body properties -->
-  <xacro:property name="thr12_x" value="0.13"/>
-  <xacro:property name="thr12_y" value="0.10"/>
-  <xacro:property name="thr34_x" value="0.14"/>
-  <xacro:property name="thr34_y" value="0.11"/>
-  <xacro:property name="thr_z" value="-0.08"/>
-  <xacro:property name="thr12_theta" value="0.7"/>
-  <xacro:property name="thr34_theta" value="0.58"/>
-  <xacro:property name="thr56_y" value="0.11"/>  
-  
-  <xacro:property name="eps" value="0.00000001"/>
-  
-  <!-- Thruster link -->
+
+<xacro:property name="PI" value="3.1415926535897931"/>
+
+<!-- Body properties -->
+<xacro:property name="thr12_x" value="0.125"/>
+<xacro:property name="thr12_y" value="0.115"/>
+<xacro:property name="thr34_x" value="0.15"/>
+<xacro:property name="thr34_y" value="0.11"/>
+<xacro:property name="thr_z" value="-0.07"/>
+<xacro:property name="thr12_theta" value="0.7"/>
+<xacro:property name="thr34_theta" value="0.6"/>
+<xacro:property name="thr56_y" value="0.11"/>  
+
+<xacro:property name="eps" value="0.00000001"/>
+
+<!-- Thruster link -->
     <xacro:macro name="thruster_link" params="name xyz rpy">        
         <joint name="${name}" type="fixed">
             <parent link="base_link"/>
@@ -53,7 +53,7 @@
         </xacro:macro>             
     
         
-  <!-- Plugin list -->
+<!-- Plugin list -->
     <gazebo>
     <!-- Gazebo plugin listens to the body-->
     <plugin name="freefloating_gazebo_control" filename="libfreefloating_gazebo_control.so">
@@ -62,6 +62,7 @@
         <link>base_link</link>
         
         <!-- for each thruster, give the map to XYZ+RPY and the maximum effort -->
+        <!-- alternatively, give a link name + the maximum effort -->
         <thruster>
             <effort>40</effort>
             <name>thr1</name>
@@ -89,32 +90,36 @@
     </plugin>             
     </gazebo>
 
-  <link name="base_link">
+<link name="base_link">
+<!-- Origin of base_link is at the center of the cylinder  -->
     <visual>
-      <origin xyz="-0.24 -0.17 -0.19" rpy="${PI/2} 0 ${PI/2}"/>
-      <!--origin xyz="-0.241 0.165 0.17" rpy="${PI/2} 0 -${PI/2}"/-->
-      <geometry>
-	<mesh filename="file://$(find bluerov_ffg)/mesh/BROV2-rdx.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
+    <geometry>
+    <mesh filename="file://$(find bluerov_ffg)/mesh/BROV2-rdx.stl"/>
+    </geometry>
     </visual>
-     <inertial>
-      <origin xyz="0 0 -0.1" rpy="0 0 0"/>
-      <mass value="5"/>
-      <inertia
-	  ixx="5"
-	  ixy="0.0"
-	  ixz="0.0"
-	  iyy="5"
-	  iyz="5"
-	  izz="5"/>
+    <inertial>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+    <mass value="7.5"/>
+    <inertia
+    ixx="0.099"
+    ixy="0.0"
+    ixz="0.0056"
+    iyy="0.129"
+    iyz="0"
+    izz="0.16"/>
     </inertial>
-  <buoyancy>
-      <compensation>1.01</compensation>
-      <origin xyz= "0 0 0"/>
-      <limit radius=".15"/>
-      <damping xyz="50 100 60" rpy="50 50 50"/>
-  </buoyancy>
-  </link>
+    <fluid>
+    <density>1</density>
+    <origin xyz= "0 0 -0.04"/>
+    <buoyancy>
+    <compensation>1.01</compensation>    
+    <limit radius=".15"/>
+    </buoyancy>
+<hydrodynamics>
+    <damping xyz="50 100 60" rpy="50 50 50"/>
+</hydrodynamics>
+    </fluid>
+</link>
 
 <xacro:thruster_link name="thr1" xyz="${thr12_x} ${-thr12_y} ${thr_z}" rpy="0.0 ${PI/2} ${thr12_theta}"/>
 <xacro:thruster_link name="thr2" xyz="${thr12_x} ${thr12_y} ${thr_z}" rpy="0.0 ${PI/2} ${-thr12_theta}"/>

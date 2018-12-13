@@ -1,12 +1,4 @@
 <?xml version="1.0"?>
 <launch>
-
-    <group ns="brov">
-        <!-- Manual control of thruster efforts -->
-         <node name="thruster_gui" pkg="slider_publisher" type="slider_publisher" output="screen" respawn="true">
-             <param name="file" value="$(find bluerov_ffg)/launch/Thrusters.yaml"/>
-        </node>
-    </group>
-        
-   
+    <include file="$(find freefloating_gazebo)/gui/depth_gui.launch" ns="brov"/>
 </launch>
